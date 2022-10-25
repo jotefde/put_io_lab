@@ -11,6 +11,6 @@ class MessageGenerator {
         if (Objects.nonNull(username))
             return "Hello" + username + "!";
         else
-            return "Hello world!";
+            return "Hello new world!";
     }
 }
