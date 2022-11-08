@@ -19,7 +19,7 @@ Specyfikacja wymagań funkcjonalnych w ramach informatyzacji procesu sprzedaży 
 2. [Kupujący](#ac2) oferuje kwotę za produkt wyższą od aktualnie najwyższej oferty. ([BR1](#br1))
 3. [Kupujący](#ac2) wygrywa aukcję ([BR2](#br2))
 4. [Kupujący](#ac2) przekazuje należność Sprzedającemu.
-5. [Sprzedający](#ac1) przekazuje produkt Kupującemu.
+5. [Sprzedający](#ac1) przekazuje produkt [Kupującemu](#ac2). ([UC2](#uc2))
 
 **Scenariusze alternatywne:** 
 
@@ -50,10 +50,11 @@ Osoba chcąca zakupić produkt na aukcji.
 
 [Sprzedający](#ac1):
 * [UC1](#uc1): Wystawienie produktu na aukcję
-* ...
+* [UC2](#uc2): Przekazanie produktu [Kupującemu](#ac2)
 
 [Kupujący](#ac2)
-* ...
+* [BR1](#br1): Zaoferowanie kwoty za produkt,  wyższej od aktualnie najwyższej oferty
+* [BR2](#br2): Wygranie aukcji
 
 ---
 <a id="uc1"></a>
@@ -77,7 +78,7 @@ Osoba chcąca zakupić produkt na aukcji.
 ---
 
 <a id="uc2"></a>
-### UC2: ...
+### UC2: Przekazanie produktu Kupującemu
 
 **Aktorzy:** [Sprzedający](#ac1), [Kupujący](#ac2), ...
 
