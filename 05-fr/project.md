@@ -18,7 +18,7 @@ Specyfikacja wymagań funkcjonalnych w ramach informatyzacji procesu sprzedaży 
 1. [Sprzedający](#ac1) wystawia produkt na aukcję. ([UC1](#uc1))
 2. [Kupujący](#ac2) oferuje kwotę za produkt wyższą od aktualnie najwyższej oferty. ([BR1](#br1))
 3. [Kupujący](#ac2) wygrywa aukcję ([BR2](#br2))
-4. [Kupujący](#ac2) przekazuje należność Sprzedającemu.
+4. [Kupujący](#ac2) przekazuje należność Sprzedającemu. ([BR3](#br3))
 5. [Sprzedający](#ac1) przekazuje produkt [Kupującemu](#ac2). ([UC2](#uc2))
 
 **Scenariusze alternatywne:** 
@@ -55,6 +55,7 @@ Osoba chcąca zakupić produkt na aukcji.
 [Kupujący](#ac2)
 * [BR1](#br1): Zaoferowanie kwoty za produkt,  wyższej od aktualnie najwyższej oferty
 * [BR2](#br2): Wygranie aukcji
+* [BR3](#br3): Dokonanie płatności za przedmiot
 
 ---
 <a id="uc1"></a>
@@ -77,18 +78,51 @@ Osoba chcąca zakupić produkt na aukcji.
 
 ---
 
-<a id="uc2"></a>
-### UC2: Przekazanie produktu Kupującemu
+<a id="br3"></a>
+### BR3: Dokonanie płatności za przedmiot
 
-**Aktorzy:** [Sprzedający](#ac1), [Kupujący](#ac2), ...
+**Aktorzy:** [Kupujący](#ac2)
 
 **Scenariusz główny:**
-1. ...
+1. System prosi o podanie danych do płatności.
+2. [Kupujący](#ac2) podaje dane do płatności.
+3. System werifikuje poprawność danych.
+4. System uzyskać należność od systemu płatności.
+5. System informuje o pomyślnej płatności za przedmiot.
 
 **Scenariusze alternatywne:** 
 
-1.A. ...
-* 4.A.1. ...
+3.A. Podano niepoprawne lub niekompletne dane płatności 
+* 3.A.1. System informuje o błędnie podanych danych.
+* 3.A.2. Przejdź do kroku 1.
+
+4.A. System nie może uzyskać należności
+* 4.A.1. System informuje o niewystarczających środkach.
+* 4.A.2. System prosi o skorzystanie z alternatywnej formy płatności.
+* 4.A.3. Przejdź do kroku 1.
+
+---
+
+<a id="uc2"></a>
+### UC2: Przekazanie produktu Kupującemu
+
+**Aktorzy:** [Sprzedający](#ac1), [Kupujący](#ac2)
+
+**Scenariusz główny:**
+1. System informuje o poprawnie przeprowadzonej płatności
+2. [Kupujący](#ac2) przekazuje informacje dotyczące formy przekazania przedmiotu
+3. [Sprzedający](#ac1) oddaje przedmiot [Kupującemu](#ac2).
+
+**Scenariusze alternatywne:** 
+
+4.A. Podano niekompletne informacje dotyczące formy przekazania przedmiotu
+* 4.A.1. System informuje o brakujących informacjach
+* 4.A.2. Przejdź do kroku 2.
+
+4.B. Podano niepoprawne informacje dotyczące formy przekazania przedmiotu
+* 4.A.1. System otrzymuje informacje o niedostarczeniu przedmiotu
+* 4.B.2. [Sprzedający](#ac1) i [Kupujący](#ac2) otrzymują komunikat
+* 4.B.3. Przejdź do kroku 2.
 
 ---
 
